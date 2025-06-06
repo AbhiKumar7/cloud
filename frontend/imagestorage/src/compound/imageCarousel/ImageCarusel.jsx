@@ -17,6 +17,7 @@ function ImageCarusel() {
       setindex(index - 1);
     }
   };
+  // counter
   useEffect(() => {
     timerRef.current = setInterval(handleNext, 3000);
     return () => {
