@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import style from "./Carousel.module.css";
+import style from "./carousel.module.css";
 import { useState } from "react";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import { data } from "../testImage";
