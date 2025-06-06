@@ -1,0 +1,75 @@
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 40vh;
+  overflow: hidden;
+  margin: 0 auto;
+  
+}
+
+.carouselImage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+
+.carouselImage img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+ transition:  ease-in .2s linear;
+}
+
+.back,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 90;
+  background: rgba(255, 255, 255, 0.6);
+  border: none;
+  border-radius: 50%;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.back {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.stepper{
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 10px;
+  gap: 5px;
+}
+.dot{
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  
+}
+.dot:hover {
+  background-color: darkgray;
+}
+
+.active {
+  background-color: #007bff; /* Highlight active dot */
+}

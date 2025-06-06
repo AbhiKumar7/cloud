@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Anta&family=Monoton&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+body {
+  font-family: 'Anta', 'Monoton', sans-serif;
+}
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-typing {
+  display: inline-block;
+  white-space: nowrap;
+  text-align: center;
+  overflow: hidden;
+  width: 0;
+  animation: typing 4s steps(30) 0.2s 1 normal both;
+
+}

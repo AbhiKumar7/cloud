@@ -1,0 +1,1 @@
+ export const eightHours = 8 * 60 * 60 * 1000;
