@@ -8,7 +8,7 @@
     "frontend": "cd frontend/imagestorage && npm run dev",
     "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
     "build": "npm install --prefix frontend/imagestorage && npm run build --prefix frontend/imagestorage",
-    "start": "node backend/src/index.js"
+    "start": "nodemon backend/src/index.js"
   },
   "keywords": [],
   "author": "",
