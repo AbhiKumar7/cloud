@@ -30,7 +30,7 @@ export const uploadImage = async (req, res) => {
     for (const file of files) {
       const result = await uploadOnCloudinary(file.path);
       if (result) {
-        const aiTags = await getAIVisiontags(result.secure_url);
+       const aiTags = await getAIVisiontags(result.url)
 
         const mediaDoc = await Media.create({
           title,

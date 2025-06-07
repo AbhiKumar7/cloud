@@ -17,8 +17,12 @@ let uploadOnCloudinary = async (localPath) => {
     let upload = await cloudinary.uploader.upload(localPath, {
       resource_type: "auto",
     });
-
-    return upload;
+    fs.unlinkSync(localPath);
+       return {
+      url: upload.secure_url, 
+      public_id: upload.public_id,
+      resource_type: upload.resource_type,
+    };
   } catch (error) {
     console.error("Cloudinary upload error:", error.message);
     throw new Error("Failed to upload file to Cloudinary");
