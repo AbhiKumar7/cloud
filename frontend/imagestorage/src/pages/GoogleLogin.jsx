@@ -13,7 +13,7 @@ function GoogleLogin() {
       if (authResult.code) {
         // Pass the code as a query parameter in the URL
         const result = await axios.post(
-         "https://cloud-1-0v8q.onrender.com/api/auth/google",
+          "https://cloud-1-0v8q.onrender.com/api/auth/google",
           {
             code: authResult.code,
           },
