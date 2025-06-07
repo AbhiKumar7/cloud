@@ -9,5 +9,5 @@ const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
 export const oauth2Client = new google.auth.OAuth2(
   clientID,
   clientSecret,
-  "https://cloud-1-0v8q.onrender.com"
+  "https://cloud-2-85ac.onrender.com"
 );
