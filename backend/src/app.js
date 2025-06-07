@@ -7,9 +7,16 @@ import baseAlbum from "./router/album.router.js";
 import path from "path";
 import { fileURLToPath } from "url";
 import cors from "cors";
+import fs from "fs";    
 dotenv.config({ path: ".env" });
 
 const app = express();
+const uploadDir = path.join(process.cwd(), 'backend/public/temp');
+
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+  console.log('Created upload directory:', uploadDir);
+}
 app.use(
   cors({
     origin: "http://localhost:3000",
