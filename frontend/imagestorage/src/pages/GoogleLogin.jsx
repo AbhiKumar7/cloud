@@ -44,7 +44,7 @@ function GoogleLogin() {
     onSuccess: googleResponse,
     onError: googleResponse,
     flow: "auth-code",
-    redirect_uri: "https://cloud-1-0v8q.onrender.com"
+    redirect_uri: "https://cloud-2-85ac.onrender.com"
   });
 
   return (
