@@ -7,7 +7,7 @@ import baseAlbum from "./router/album.router.js";
 import path from "path";
 import { fileURLToPath } from "url";
 import cors from "cors";
-dotenv.config({ path: ".env" });
+dotenv.config({ path: "./.env" });
 
 const app = express();
 app.use(
