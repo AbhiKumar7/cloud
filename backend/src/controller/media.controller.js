@@ -14,23 +14,28 @@ export const uploadImage = async (req, res) => {
         .status(400)
         .json({ message: "Title and at least one photo are required" });
     }
-    const mediaExits = await Media.findOne({
-      $or: [{ title }],
-    });
-    if (mediaExits) {
-      return res.status(400).json({ message: "media already exits" });
+
+    const mediaExists = await Media.findOne({ title });
+    if (mediaExists) {
+      return res
+        .status(400)
+        .json({ message: "Media with this title already exists" });
     }
 
     const album = await Album.findById(albumId);
     if (!album) {
-      return res.status(400).json({ message: "album not found" });
+      return res.status(400).json({ message: "Album not found" });
     }
+
     const uploadedMedia = [];
 
     for (const file of files) {
       const result = await uploadOnCloudinary(file.path);
       if (result) {
-       const aiTags = await getAIVisiontags(result.url)
+
+        result.url = result.url.replace(/^http:\/\//, "https://");
+
+        const aiTags = await getAIVisiontags(result.url);
 
         const mediaDoc = await Media.create({
           title,
@@ -40,13 +45,14 @@ export const uploadImage = async (req, res) => {
           tags: aiTags,
           albums: [album._id],
         });
-        uploadedMedia.push(mediaDoc);
 
+        uploadedMedia.push(mediaDoc);
         album.media.push(mediaDoc._id);
       }
     }
 
     await album.save();
+
     return res.status(201).json({
       status: true,
       message: "Files uploaded successfully",
@@ -94,7 +100,6 @@ export const getImageById = async (req, res) => {
   try {
     const { albumId } = req.params;
 
-    
     const album = await Album.findById(albumId).populate("media");
 
     if (!album) {

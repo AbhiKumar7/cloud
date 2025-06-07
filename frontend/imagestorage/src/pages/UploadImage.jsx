@@ -50,8 +50,6 @@ function UploadImage() {
     fetchMedia();
   }, [albumId]);
 
-
-
   const toggleForm = () => {
     setshowForm((prev) => !prev);
   };
@@ -61,7 +59,6 @@ function UploadImage() {
     formData.append("title", title);
     formData.append("avatar", image);
     dispatch(uploadFileApi({ albumId, formData })).then((data) => {
-    
       if (data.payload?.status) {
         fetchMedia();
         toggleForm();
@@ -134,9 +131,10 @@ function UploadImage() {
           >
             <img
               className="w-full h-100 object-cover"
-              src={media.url}
+              src={media.url.replace(/^http:\/\//, "https://")}
               alt={`media-${index}`}
             />
+
             <div className="absolute bottom-0 left-0 w-full bg-red-300 bg-opacity-80 text-white text-sm p-2 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out">
               <p className="text-center capitalize">{media.title}</p>
             </div>
