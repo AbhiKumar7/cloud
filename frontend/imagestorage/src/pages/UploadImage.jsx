@@ -151,7 +151,8 @@ function UploadImage() {
               className="absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2
                bg-white opacity-0 group-hover:opacity-85 transition-opacity
                rounded-full shadow p-3 cursor-pointer"
-              onClick={() => handleDownload(media.url, `${media.title}.jpg`)}
+           onClick={() => handleDownload(media.url.replace(/^http:\/\//, "https://"), `${media.title}.jpg`)}
+
             >
               <ArrowDownToLine className="text-gray-700" />
             </div>
